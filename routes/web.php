@@ -10,7 +10,7 @@ Route::get('/', function () {
 });
 
 
-Route::prefix('/tasks')->group(function () {
-    Route::get('/', TaskIndex::class);
+Route::prefix('/tasks')->prefix('tasks')->as('task.')->group(function () {
+    Route::get('/', TaskIndex::class)->name('index');
     Route::get('/create', TaskCreate::class);
 });
